@@ -49,7 +49,37 @@ document.getElementById("output-basic").innerHTML +=
 "The area of the box is: " + boxAreaVolume(2,7, 5)[0] + 
 "<br>The volume of the box is: " + boxAreaVolume(2, 7, 5)[1] + "<br><hr>";
 
+//calc average
+function calcAverage (gradeMath, gradePh, gradeEn) {
+	var sum = gradeMath + gradePh + gradeEn;
+	var avg = sum / 3;
+	return [sum, avg];
+}
 
+document.getElementById("form").addEventListener("submit", function(e){
+	e.preventDefault();
+    var math = document.getElementsByName('math')[0].value;
+    var physics = document.getElementsByName('physics')[0].value;
+    var english = document.getElementsByName('english')[0].value;
+    document.getElementById("form").innerHTML +=
+    "<br>Sum: " + calcAverage(Number(math), Number(physics), Number(english))[0] + "<br>" +
+    "Average: " + calcAverage(Number(math), Number(physics), Number(english))[1] + "<br><hr>";
+});
+
+//show window size
+function windowSize() {
+    var width = this.innerWidth;
+    var height = this.innerHeight;
+    document.getElementById("w-size").innerHTML =
+    "Width of window: " + width + "<br>" + 
+    "Height of window: " + height;
+    
+}
+
+window.addEventListener('load', windowSize);
+window.addEventListener('resize', windowSize);
+
+//capitalize
 
 
 
