@@ -71,7 +71,7 @@ function windowSize() {
     var width = this.innerWidth;
     var height = this.innerHeight;
     document.getElementById("w-size").innerHTML =
-    "Width of window: " + width + "<br>" + 
+    "<br><hr>Width of window: " + width + "<br>" + 
     "Height of window: " + height;
     
 }
@@ -113,5 +113,32 @@ document.getElementById("output-advanced").innerHTML +=
 calcYesterday("May 1, 2017") +  "<br><hr>";
 
 //Dynamic Background
+//number.toString(radix) -->
+//Which base to use for representing a numeric value. Must be an integer between 2 and 36
+function randomBackground () {
+	var red = Math.floor((Math.random() * 255) + 1);
+	var blue = Math.floor((Math.random() * 255) + 1);
+	var green = Math.floor((Math.random() * 255) + 1);
+	document.body.style.backgroundColor = "rgb(" + red + ","  + green + ","  +blue + ")";
+	document.getElementById("color").innerHTML = "rgb(" + red + ","  + green + ","  + blue + ")<br>"
+	+ "HEX: #" + red.toString(16) + green.toString(16) + blue.toString(16);
+
+}
+
+window.addEventListener('load', randomBackground);
+setInterval(randomBackground, 2000);
+
+// String.prototype.toRGB = function() {
+//   var rgb = this.split( ',' ) ;
+//   this.r=parseInt( rgb[0].substring(4) ) ; // skip rgb(
+//   this.g=parseInt( rgb[1] ) ; // this is just g
+//   this.b=parseInt( rgb[2] ) ; // parseInt scraps trailing )
+// }
+//hexString = yourNumber.toString(16);
+//console.log(num.toString(16));
+
+
+
+
 
 
