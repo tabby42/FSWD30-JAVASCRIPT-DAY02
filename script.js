@@ -88,9 +88,30 @@ var capitalize = (function ( string ) {
 });
 
 document.getElementById("caps").innerHTML =
-capitalize("hello weekend!");
+capitalize("hello weekend!<br><hr>");
 
+//Time convert
+function timeConvert (minutes) {
+	var hours = Math.floor(minutes / 60);
+	var restminutes = minutes % 60;
+	document.getElementById("output-advanced").innerHTML +=
+	minutes + " minutes are " + hours + " hours and " + 
+	restminutes + " minutes.<br><hr>";
+}
 
+timeConvert(378);
 
+//calc Date
+var calcYesterday = (function ( datestring ) {
+	var ms = Date.parse(datestring);
+	var d = new Date(ms);
+	d.setDate(d.getDate()-1);
+	return d.toDateString();	
+});
+
+document.getElementById("output-advanced").innerHTML +=
+calcYesterday("May 1, 2017") +  "<br><hr>";
+
+//Dynamic Background
 
 
