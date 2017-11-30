@@ -80,7 +80,15 @@ window.addEventListener('load', windowSize);
 window.addEventListener('resize', windowSize);
 
 //capitalize
+//string.slice(start, end) 
+//The slice() method extracts parts of a string and 
+//returns the extracted parts in a new string
+var capitalize = (function ( string ) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
+});
 
+document.getElementById("caps").innerHTML =
+capitalize("hello weekend!");
 
 
 
